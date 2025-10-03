@@ -14,8 +14,20 @@ import Link from "next/link"
 import { cn } from "@/lib/utils"
 import { ChevronRight, LogOut } from "lucide-react"
 import { AdminSidebarComponents } from "@/constants/AdminSidebar";
+import { Logout } from "@/hooks/profile/logout";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 const AdminSidebar = () => {
+
+    const router = useRouter();
+
+    const handleLogout = async () => {
+        await Logout({ role: "admin" });
+        router.refresh();
+        toast.success("Logged out successfully");
+    };
+
     return (
         <Sidebar className="border-none shadow-none bg-gradient-to-b from-slate-50 to-white">
             <SidebarContent className="flex flex-col h-full border-none">
@@ -63,7 +75,7 @@ const AdminSidebar = () => {
 
                         <SidebarMenuItem>
                             <SidebarMenuButton asChild>
-                                <button className="w-full flex items-center gap-4 rounded-xl px-4 py-3 text-sm font-medium text-slate-600 hover:bg-red-50 hover:text-red-600 transition-all duration-200 group">
+                                <button onClick={handleLogout} className="w-full flex items-center gap-4 rounded-xl px-4 py-3 text-sm font-medium text-slate-600 hover:bg-red-50 hover:text-red-600 transition-all duration-200 group">
                                     <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-slate-100 text-slate-500 group-hover:bg-red-100 group-hover:text-red-500 transition-colors">
                                         <LogOut className="h-4 w-4" />
                                     </div>

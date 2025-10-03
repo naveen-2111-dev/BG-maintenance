@@ -33,10 +33,12 @@ To keep track of the logical schemas we use across collections, this doc serves 
 ```json
 {
     "name": "manikandaraja",
-    "amount": 250,
-    "month": "September",
-    "status": "paid",
-    "paidOn": "2025-09-05T00:00:00Z",
+    "payment": {
+        "amount": 250,
+        "month": "September",
+        "status": "paid",
+        "paidOn": "2025-09-05T00:00:00Z",
+    },
     "plotno": "121",
     "phone": "6382817065",
 }
@@ -52,7 +54,6 @@ To keep track of the logical schemas we use across collections, this doc serves 
 ```json
 {
     "name": "Naveen Rajan",
-    "email": "naveen@example.com",
     "phone": "+91-9876543210",
     "role": "Lead",
     "joinedOn": "2025-01-15T00:00:00Z"

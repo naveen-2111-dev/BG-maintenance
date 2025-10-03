@@ -1,5 +1,4 @@
-//mongodb connection
-import { MongoClient, ServerApiVersion } from "mongodb";
+import { Collection, MongoClient, ServerApiVersion, Document } from "mongodb";
 
 const URI = process.env.MONGODB_URI!;
 
@@ -20,9 +19,9 @@ async function connect() {
     }
 }
 
-async function GetCollection(collectionName: string) {
+async function GetCollection<T extends Document>(collectionName: string): Promise<Collection<T>> {
     const db = await connect();
-    return db!.collection(collectionName);
+    return db!.collection<T>(collectionName);
 }
 
 export { GetCollection };

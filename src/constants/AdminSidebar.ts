@@ -28,6 +28,6 @@ export const AdminSidebarComponents: AdminSidebarComponentType[] = [
         id: 4,
         title: "Pending Fee",
         icon: PersonStanding,
-        url: "/pending"
+        url: "/admin"
     }
 ]
